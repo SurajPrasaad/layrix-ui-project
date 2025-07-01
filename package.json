@@ -24,7 +24,7 @@
     "preview": "vite preview",
     "generate": "layrix-ui generate",
     "components": "layrix-ui components",
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
