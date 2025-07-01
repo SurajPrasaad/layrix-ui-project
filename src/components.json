@@ -1,0 +1,539 @@
+{
+  "components": [
+    {
+      "name": "Button",
+      "description": "A versatile button component with multiple variants, sizes, and animation options.",
+      "variants": [
+        { "variant": "primary", "label": "Primary", "description": "Primary action button" },
+        { "variant": "outline", "label": "Outline", "description": "Outline style button" },
+        { "variant": "ghost", "label": "Ghost", "description": "Transparent button with hover effect" },
+        { "variant": "default", "label": "Default", "description": "Default style button" }
+      ],
+      "sizes": ["sm", "md", "lg"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "The visual style of the button.",
+          "options": ["default", "outline", "ghost", "primary"]
+        },
+        "size": {
+          "type": "string",
+          "description": "The size of the button.",
+          "options": ["sm", "md", "lg"]
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional Tailwind classes to apply to the button."
+        },
+        "children": {
+          "type": "node",
+          "description": "The content of the button."
+        },
+        "loading": {
+          "type": "boolean",
+          "description": "Whether the button should show a loading state."
+        },
+        "animated": {
+          "type": "boolean",
+          "description": "Whether the button should have Framer Motion animations."
+        },
+        "animatedBorder": {
+          "type": "boolean",
+          "description": "Whether the button should have an animated border glow effect."
+        },
+        "fancyHover": {
+          "type": "boolean",
+          "description": "Whether the button should have a fancy hover effect with scale and rotation."
+        },
+        "entrance": {
+          "type": "boolean",
+          "description": "Whether the button should have an entrance animation when mounted."
+        },
+        "onClick": {
+          "type": "function",
+          "description": "Handler function for when the button is clicked."
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether the button should be disabled."
+        }
+      },
+      "examples": [
+        "<Button variant='primary' size='md'>Click me</Button>",
+        "<Button animated variant='primary'>Animated Button</Button>",
+        "<Button animated animatedBorder variant='outline'>Animated Border Button</Button>",
+        "<Button variant='primary' animatedBorder>Fancy Hover</Button>",
+        "<Button variant='primary' fancyHover>Fancy Hover</Button>",
+        "<Button variant='primary' entrance>Entrance Animation</Button>",
+        "<Button variant='primary' animated animatedBorder fancyHover entrance>All Animations</Button>"
+      ]
+    },
+    {
+      "name": "Card",
+      "description": "Flexible card component for content display",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard card" },
+        { "variant": "elevated", "label": "Elevated", "description": "Card with shadow" },
+        { "variant": "bordered", "label": "Bordered", "description": "Card with border" },
+        { "variant": "compact", "label": "Compact", "description": "Compact card with less padding" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Card variant",
+          "options": ["default", "elevated", "bordered", "compact"]
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes"
+        },
+        "header": {
+          "type": "string",
+          "description": "Card header content",
+          "optional": true
+        },
+        "footer": {
+          "type": "string",
+          "description": "Card footer content",
+          "optional": true
+        }
+      },
+      "example": "<Card variant='elevated'><h3>Card Title</h3><p>Card content goes here</p></Card>"
+    },
+    {
+      "name": "Modal",
+      "description": "Beautiful modals for dialogs and forms",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard modal" },
+        { "variant": "fullscreen", "label": "Fullscreen", "description": "Fullscreen modal" },
+        { "variant": "small", "label": "Small", "description": "Small modal" },
+        { "variant": "large", "label": "Large", "description": "Large modal" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Modal variant",
+          "options": ["default", "fullscreen", "small", "large"]
+        },
+        "isOpen": {
+          "type": "boolean",
+          "description": "Whether the modal is open",
+          "optional": true
+        },
+        "onClose": {
+          "type": "function",
+          "description": "Callback when modal is closed",
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "title": {
+          "type": "string",
+          "description": "Modal title",
+          "optional": true
+        }
+      },
+      "example": "<Modal isOpen='{isOpen}'onClose='{handleClose}'><h3>Modal Title</h3><p>Modal content goes here</p></Modal>"
+    },
+    {
+      "name": "Input",
+      "description": "Form input component with various types",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard input" },
+        { "variant": "outlined", "label": "Outlined", "description": "Outlined input" },
+        { "variant": "underlined", "label": "Underlined", "description": "Underlined input" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Input variant",
+          "options": ["default", "outlined", "underlined"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Input type",
+          "options": ["text", "password", "email", "number", "date", "tel"]
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "Input placeholder text",
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether the input is disabled",
+          "optional": true
+        },
+        "error": {
+          "type": "boolean",
+          "description": "Whether the input has an error state",
+          "optional": true
+        },
+        "size": {
+          "type": "string",
+          "description": "Input size",
+          "options": ["sm", "md", "lg"],
+          "optional": true
+        }
+      },
+      "example": "<Input type='text' placeholder='Enter text...' />"
+    },
+    {
+      "name": "Select",
+      "description": "Dropdown select component",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard select" },
+        { "variant": "outlined", "label": "Outlined", "description": "Outlined select" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Select variant",
+          "options": ["default", "outlined"]
+        },
+        "options": {
+          "type": "array",
+          "description": "Array of options for the select",
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "Select placeholder text",
+          "optional": true
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether the select is disabled",
+          "optional": true
+        },
+        "error": {
+          "type": "boolean",
+          "description": "Whether the select has an error state",
+          "optional": true
+        }
+      },
+      "example": "<Select options={['Option 1', 'Option 2', 'Option 3']} placeholder='Select option...' />"
+    },
+    {
+      "name": "Checkbox",
+      "description": "Checkbox form component",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard checkbox" },
+        { "variant": "filled", "label": "Filled", "description": "Filled checkbox" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Checkbox variant",
+          "options": ["default", "filled"]
+        },
+        "label": {
+          "type": "string",
+          "description": "Checkbox label text",
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether the checkbox is disabled",
+          "optional": true
+        },
+        "checked": {
+          "type": "boolean",
+          "description": "Whether the checkbox is checked",
+          "optional": true
+        }
+      },
+      "example": "<Checkbox label='I agree' />"
+    },
+    {
+      "name": "Radio",
+      "description": "Radio button form component",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard radio button" },
+        { "variant": "filled", "label": "Filled", "description": "Filled radio button" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Radio variant",
+          "options": ["default", "filled"]
+        },
+        "label": {
+          "type": "string",
+          "description": "Radio label text",
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether the radio is disabled",
+          "optional": true
+        },
+        "checked": {
+          "type": "boolean",
+          "description": "Whether the radio is checked",
+          "optional": true
+        },
+        "value": {
+          "type": "string",
+          "description": "Radio value",
+          "optional": true
+        }
+      },
+      "example": "<Radio label='Option 1' value='option1' />"
+    },
+    {
+      "name": "Textarea",
+      "description": "Multi-line text input component",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard textarea" },
+        { "variant": "outlined", "label": "Outlined", "description": "Outlined textarea" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Textarea variant",
+          "options": ["default", "outlined"]
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "Textarea placeholder text",
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether the textarea is disabled",
+          "optional": true
+        },
+        "error": {
+          "type": "boolean",
+          "description": "Whether the textarea has an error state",
+          "optional": true
+        },
+        "rows": {
+          "type": "number",
+          "description": "Number of rows",
+          "optional": true
+        }
+      },
+      "example": "<Textarea placeholder='Enter your message...' rows={4} />"
+    },
+    {
+      "name": "Badge",
+      "description": "Small status indicator component",
+      "variants": [
+        { "variant": "primary", "label": "Primary", "description": "Primary badge" },
+        { "variant": "success", "label": "Success", "description": "Success badge" },
+        { "variant": "warning", "label": "Warning", "description": "Warning badge" },
+        { "variant": "danger", "label": "Danger", "description": "Danger badge" },
+        { "variant": "info", "label": "Info", "description": "Info badge" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Badge variant",
+          "options": ["primary", "success", "warning", "danger", "info"]
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "pill": {
+          "type": "boolean",
+          "description": "Whether to show as a pill shape",
+          "optional": true
+        }
+      },
+      "example": "<Badge variant='success'>Success</Badge>"
+    },
+    {
+      "name": "Avatar",
+      "description": "User profile avatar component",
+      "variants": [
+        { "variant": "rounded", "label": "Rounded", "description": "Rounded avatar" },
+        { "variant": "circular", "label": "Circular", "description": "Circular avatar" },
+        { "variant": "square", "label": "Square", "description": "Square avatar" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Avatar variant",
+          "options": ["rounded", "circular", "square"]
+        },
+        "size": {
+          "type": "string",
+          "description": "Avatar size",
+          "options": ["sm", "md", "lg", "xl"],
+          "optional": true
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "src": {
+          "type": "string",
+          "description": "Image source",
+          "optional": true
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alternative text for image",
+          "optional": true
+        }
+      },
+      "example": "<Avatar variant='circular' size='md' src='avatar.jpg' alt='User avatar' />"
+    },
+    {
+      "name": "Tooltip",
+      "description": "Tooltip component for showing additional information",
+      "variants": [
+        { "variant": "top", "label": "Top", "description": "Tooltip appears above" },
+        { "variant": "bottom", "label": "Bottom", "description": "Tooltip appears below" },
+        { "variant": "left", "label": "Left", "description": "Tooltip appears to the left" },
+        { "variant": "right", "label": "Right", "description": "Tooltip appears to the right" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Tooltip position",
+          "options": ["top", "bottom", "left", "right"]
+        },
+        "content": {
+          "type": "string",
+          "description": "Tooltip content"
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "delay": {
+          "type": "number",
+          "description": "Delay before showing tooltip (in ms)",
+          "optional": true
+        }
+      },
+      "example": "<Tooltip variant='top' content='This is a tooltip'>Hover me</Tooltip>"
+    },
+    {
+      "name": "Alert",
+      "description": "Alert component for showing notifications",
+      "variants": [
+        { "variant": "primary", "label": "Primary", "description": "Primary alert" },
+        { "variant": "success", "label": "Success", "description": "Success alert" },
+        { "variant": "warning", "label": "Warning", "description": "Warning alert" },
+        { "variant": "danger", "label": "Danger", "description": "Danger alert" },
+        { "variant": "info", "label": "Info", "description": "Info alert" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Alert variant",
+          "options": ["primary", "success", "warning", "danger", "info"]
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "dismissible": {
+          "type": "boolean",
+          "description": "Whether the alert can be dismissed",
+          "optional": true
+        },
+        "onDismiss": {
+          "type": "function",
+          "description": "Callback when alert is dismissed",
+          "optional": true
+        }
+      },
+      "example": "<Alert variant='success'>Success message!</Alert>"
+    },
+    {
+      "name": "ProgressBar",
+      "description": "Progress bar component for showing progress",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard progress bar" },
+        { "variant": "circular", "label": "Circular", "description": "Circular progress bar" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Progress bar variant",
+          "options": ["default", "circular"]
+        },
+        "value": {
+          "type": "number",
+          "description": "Progress value (0-100)"
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "size": {
+          "type": "string",
+          "description": "Progress bar size",
+          "options": ["sm", "md", "lg"],
+          "optional": true
+        }
+      },
+      "example": "<ProgressBar variant='default' value={75} />"
+    },
+    {
+      "name": "Accordion",
+      "description": "Collapsible content section",
+      "variants": [
+        { "variant": "default", "label": "Default", "description": "Standard accordion" },
+        { "variant": "filled", "label": "Filled", "description": "Filled accordion" }
+      ],
+      "props": {
+        "variant": {
+          "type": "string",
+          "description": "Accordion variant",
+          "options": ["default", "filled"]
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS classes",
+          "optional": true
+        },
+        "multiple": {
+          "type": "boolean",
+          "description": "Whether multiple sections can be open",
+          "optional": true
+        }
+      },
+      "example": "<Accordion variant='default'>\n  <Accordion.Item title='Section 1'>Content 1</Accordion.Item>\n  <Accordion.Item title='Section 2'>Content 2</Accordion.Item>\n</Accordion>"
+    }
+  ]
+}

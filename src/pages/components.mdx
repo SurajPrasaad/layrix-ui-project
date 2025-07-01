@@ -1,0 +1,650 @@
+import { Button, Card, Input, Select, Textarea, Badge, Avatar, Tooltip, Alert, ProgressBar, CodePreview, Accordion, AccordionItem, Checkbox, Modal, Radio } from '@/components';
+import { useState } from 'react';
+import { ModalPreview } from '@/components/previews/ModalPreview';
+import { ButtonPreview } from '@/components/previews/ButtonPreview';
+import { CardPreview } from '@/components/previews/CardPreview';
+import { RadioPreview } from '@/components/previews/RadioPreview';
+import { CheckboxPreview } from '@/components/previews/CheckboxPreview';
+
+# Components
+
+Welcome to the Layrix UI Components documentation! Here you'll find all our available components and how to use them.
+
+## Button
+
+A versatile button component with multiple variants and sizes.
+
+### Examples
+
+<CodePreview
+  code={`// Basic variants
+<Button variant="primary">Primary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+
+// Sizes
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+
+// Loading state
+<Button variant="primary" loading>Loading...</Button>
+
+// Disabled state
+<Button variant="primary" disabled>Disabled</Button>`}
+  preview={<ButtonPreview />}
+/>
+
+## Modal
+
+Dialog component for displaying content in an overlay.
+
+### Basic Usage
+
+<CodePreview
+ code={`...`}
+  preview={<ModalPreview />}
+/>
+
+### Loading State
+
+<CodePreview
+  code={`<Button variant="primary" size="md" loading={true}>Loading...</Button>`}
+  preview={<ButtonPreview />}
+/>
+
+### Disabled State
+
+<CodePreview
+  code={`<Button variant="primary" size="md" disabled={true}>Disabled</Button>`}
+  preview={
+    <Button variant="primary" size="md" disabled={true}>Disabled</Button>
+  }
+/>
+
+### Variants
+
+<CodePreview
+  code={`// Primary button
+<Button variant="primary" size="md">Primary</Button>
+
+// Outline button
+<Button variant="outline" size="md">Outline</Button>
+
+// Ghost button
+<Button variant="ghost" size="md">Ghost</Button>`}
+  preview={
+    <div className="flex flex-col sm:flex-row gap-4">
+      <Button variant="primary" size="md">Primary</Button>
+      <Button variant="outline" size="md">Outline</Button>
+      <Button variant="ghost" size="md">Ghost</Button>
+    </div>
+  }
+/>
+
+### Sizes
+
+<CodePreview
+  code={`// Small button
+<Button variant="primary" size="sm">Small</Button>
+
+// Medium button
+<Button variant="primary" size="md">Medium</Button>
+
+// Large button
+<Button variant="primary" size="lg">Large</Button>`}
+  preview={
+    <div className="flex flex-col sm:flex-row gap-4">
+      <Button variant="primary" size="sm">Small</Button>
+      <Button variant="primary" size="md">Medium</Button>
+      <Button variant="primary" size="lg">Large</Button>
+    </div>
+  }
+/>
+
+### Animations
+
+<CodePreview
+  code={`// Animated button
+<Button variant="primary" animated>Animated</Button>
+
+// Animated border
+<Button variant="primary" animated animatedBorder>Animated Border</Button>
+
+// Fancy hover
+<Button variant="primary" animated fancyHover>Fancy Hover</Button>
+
+// Entrance animation
+<Button variant="primary" animated entrance>Entrance</Button>`}
+  preview={
+    <div className="flex flex-col sm:flex-row gap-4">
+      <Button variant="primary" animated>Animated</Button>
+      <Button variant="primary" animated animatedBorder>Animated Border</Button>
+      <Button variant="primary" animated fancyHover>Fancy Hover</Button>
+      <Button variant="primary" animated entrance>Entrance</Button>
+    </div>
+  }
+/>
+
+## Card
+
+A flexible container component for displaying content.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Card>
+
+// Elevated Card
+<Card variant="elevated">
+  <h3 className="text-lg font-semibold mb-2">Elevated Card</h3>
+  <p className="text-gray-400">This card has an elevated style with a shadow.</p>
+</Card>
+
+// Card with Header
+<Card>
+  <div className="flex justify-between items-center border-b border-gray-700 pb-3">
+    <h3 className="text-lg font-semibold">Card with Header</h3>
+    <button className="text-gray-400 hover:text-gray-300">×</button>
+  </div>
+  <p className="text-gray-400 pt-3">This card has a header section.</p>
+</Card>`}
+  preview={<CardPreview />}
+/>
+
+## Modal
+
+Dialog component for displaying content in an overlay.
+
+### Basic Usage
+
+<CodePreview
+  code={`const [isOpen, setIsOpen] = useState(false);
+
+<Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+  <h3 className="text-lg font-semibold text-white mb-4">Modal Title</h3>
+  <p className="text-gray-300 mb-4">Modal content goes here.</p>
+  <div className="flex justify-end space-x-2">
+    <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+    <Button onClick={() => setIsOpen(false)}>Save</Button>
+  </div>
+</Modal>`}
+  preview={<ModalPreview />}
+/>
+
+## Input
+
+Text input component with various states and options.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Input placeholder="Enter text..." />`}
+  preview={
+    <Input placeholder="Enter text..." />
+  }
+/>
+
+### With Label
+
+<CodePreview
+  code={`<Input
+  label="Name"
+  placeholder="Enter your name"
+/>`}
+  preview={
+    <Input
+      label="Name"
+      placeholder="Enter your name"
+    />
+  }
+/>
+
+### Disabled State
+
+<CodePreview
+  code={`<Input
+  placeholder="Disabled input"
+  disabled
+/>`}
+  preview={
+    <Input
+      placeholder="Disabled input"
+      disabled
+    />
+  }
+/>
+
+## Select
+
+Dropdown select component with multiple options.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Select
+  placeholder="Select an option"
+  options={['Option 1', 'Option 2', 'Option 3']}
+/>`}
+  preview={
+    <Select
+      placeholder="Select an option"
+      options={['Option 1', 'Option 2', 'Option 3']}
+    />
+  }
+/>
+
+## Checkbox
+
+Checkbox component with label support.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Checkbox label="Agree to terms" />`}
+  preview={<CheckboxPreview />}
+/>
+
+## Radio
+
+A radio button component for selecting a single option from a group.
+
+### Examples
+
+<CodePreview
+  code={`// Basic Radio Group
+const [value, setValue] = useState('option1');
+
+<Radio checked={value === 'option1'} onChange={(e) => setValue(e.target.value)} value="option1">
+  Option 1
+</Radio>
+<Radio checked={value === 'option2'} onChange={(e) => setValue(e.target.value)} value="option2">
+  Option 2
+</Radio>
+<Radio checked={value === 'option3'} onChange={(e) => setValue(e.target.value)} value="option3">
+  Option 3
+</Radio>
+
+// Disabled Radio
+<Radio checked={value === 'option1'} onChange={(e) => setValue(e.target.value)} value="option1" disabled>
+  Disabled Option
+</Radio>`}
+  preview={<RadioPreview />}
+/>
+
+## Textarea
+
+Multi-line text input component.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Textarea placeholder="Enter your message..." />`}
+  preview={
+    <Textarea placeholder="Enter your message..." />
+  }
+/>
+
+## Badge
+
+Small status indicator component.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Badge variant="primary">New</Badge>`}
+  preview={
+    <Badge variant="primary">New</Badge>
+  }
+/>
+
+## Avatar
+
+Profile picture component with fallback support.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Avatar src="avatar.jpg" alt="User avatar" />`}
+  preview={
+    <Avatar src="avatar.jpg" alt="User avatar" />
+  }
+/>
+
+## Tooltip
+
+Component that displays a tooltip on hover.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Tooltip content="This is a tooltip">
+  <Button>Hover me</Button>
+</Tooltip>`}
+  preview={
+    <Tooltip content="This is a tooltip">
+      <Button>Hover me</Button>
+    </Tooltip>
+  }
+/>
+
+## Alert
+
+Component for displaying important messages.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Alert variant="info">
+  This is an info alert
+</Alert>`}
+  preview={
+    <Alert variant="info">
+      This is an info alert
+    </Alert>
+  }
+/>
+
+## ProgressBar
+
+Component for displaying progress.
+
+### Basic Usage
+
+<CodePreview
+  code={`<ProgressBar value={50} />`}
+  preview={
+    <ProgressBar value={50} />
+  }
+/>
+
+## Accordion
+
+Collapsible content section component.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Accordion>
+  <AccordionItem title="Section 1">
+    <p>Content for section 1</p>
+  </AccordionItem>
+  <AccordionItem title="Section 2">
+    <p>Content for section 2</p>
+  </AccordionItem>
+</Accordion>`}
+  preview={
+    <Accordion>
+      <AccordionItem title="Section 1">
+        <p>Content for section 1</p>
+      </AccordionItem>
+      <AccordionItem title="Section 2">
+        <p>Content for section 2</p>
+      </AccordionItem>
+    </Accordion>
+  }
+/>
+
+## Card
+
+A flexible container component for displaying content.
+
+### Basic Usage
+
+<CodePreview
+  code={`<Card>
+  <h2>Card Title</h2>
+  <p>Card content goes here.</p>
+</Card>`}
+  preview={<CardPreview />}
+/>
+
+<CodePreview
+  code={`<Card header={<h2>Card Title</h2>}>
+  <p>Card content goes here</p>
+</Card>`}
+  preview={
+    <Card header={<h2>Card Title</h2>}>
+      <p>Card content goes here</p>
+    </Card>
+  }
+/>
+
+```tsx
+<Card variant="elevated">
+  <h3>Card Title</h3>
+  <p>Card content goes here</p>
+</Card>
+```
+
+## Modal
+
+Dialog component for displaying content in an overlay.
+
+### Usage
+
+<CodePreview
+  code={`const [isOpen, setIsOpen] = useState(false);
+
+<Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+  <h3 className="text-lg font-semibold text-white mb-4">Modal Title</h3>
+  <p className="text-gray-300 mb-4">Modal content goes here.</p>
+  <div className="flex justify-end space-x-2">
+    <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+    <Button onClick={() => setIsOpen(false)}>Save</Button>
+  </div>
+</Modal>`}
+  preview={() => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <>
+        <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <h3 className="text-lg font-semibold text-white mb-4">Modal Title</h3>
+          <p className="text-gray-300 mb-4">Modal content goes here.</p>
+          <div className="flex justify-end space-x-2">
+            <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+            <Button onClick={() => setIsOpen(false)}>Save</Button>
+          </div>
+        </Modal>
+      </>
+    );
+  }}
+/>
+
+## Form Elements
+
+### Input
+
+<CodePreview
+  code={`<Input 
+  type="text" 
+  placeholder="Enter text..." 
+  size="md"
+/>`}
+  preview={
+    <Input 
+      type="text" 
+      placeholder="Enter text..." 
+      size="md"
+    />
+  }
+/>
+
+### Textarea
+
+<CodePreview
+  code={`<Textarea
+    placeholder="Enter text..."
+    size="md"
+  />`}
+  preview={
+    <Textarea
+      placeholder="Enter text..."
+      size="md"
+    />
+  }
+/>
+
+### Accordion
+
+<CodePreview
+  code={`import { Accordion, AccordionItem } from '@/components';
+
+<Accordion>
+  <AccordionItem title="Section 1">
+    Content 1
+  </AccordionItem>
+  <AccordionItem title="Section 2">
+    Content 2
+  </AccordionItem>
+</Accordion>`}
+  preview={() => {
+    return (
+      <Accordion>
+        <AccordionItem title="Section 1">
+          Content 1
+        </AccordionItem>
+        <AccordionItem title="Section 2">
+          Content 2
+        </AccordionItem>
+      </Accordion>
+    );
+  }}
+/>
+
+### Select
+
+<CodePreview
+  code={`const [selected, setSelected] = useState('');
+
+<Select
+  options={['Option 1', 'Option 2']}
+  value={selected}
+  onChange={(val) => setSelected(val)}
+  placeholder="Select an option..."
+/>`}
+  preview={() => {
+    const [selected, setSelected] = useState('');
+    return (
+      <Select
+        options={['Option 1', 'Option 2']}
+        value={selected}
+        onChange={(val) => setSelected(val)}
+        placeholder="Select an option..."
+      />
+    );
+  }}
+/>
+
+    <Textarea
+      placeholder="Enter text..."
+      size="md"
+    />
+  }
+/>
+
+### Checkbox
+
+A checkbox component for toggling boolean values.
+
+### Examples
+
+<CodePreview
+  code={`// Basic Checkbox
+const [checked, setChecked] = useState(false);
+
+<Checkbox checked={checked} onChange={(e) => setChecked(e.target.checked)}>
+  Basic Checkbox
+</Checkbox>
+
+// Disabled Checkbox
+<Checkbox disabled>Disabled Checkbox</Checkbox>`}
+  preview={<CheckboxPreview />}
+/>
+
+### Radio
+
+<CodePreview
+  code={`<Radio
+  id="radio"
+  name="radio-group"
+  value="option1"
+  label="Radio label"
+  size="md"
+/>`}
+  preview={<RadioPreview />}
+/>
+
+## Status Indicators
+
+### Badge
+
+<CodePreview
+  code={`<Badge variant="primary">Primary</Badge>
+<Badge variant="secondary">Secondary</Badge>`}
+  preview={
+    <>
+      <Badge variant="primary">Primary</Badge>
+      <Badge variant="secondary">Secondary</Badge>
+    </>
+  }
+/>
+
+<Badge variant="danger">Danger</Badge>
+
+### Avatar
+
+<CodePreview
+  code={`<Avatar src="/avatar.jpg" alt="User avatar" />`}
+  preview={
+    <Avatar src="/avatar.jpg" alt="User avatar" />
+  }
+/>
+
+## Progress Indicators
+
+### ProgressBar
+
+<CodePreview
+  code={`<ProgressBar value={75} max={100} />`}
+  preview={
+    <ProgressBar value={75} max={100} />
+  }
+/>
+
+## Interactive Components
+
+### Tooltip
+
+<CodePreview
+  code={`<Button>
+  <Tooltip content="This is a tooltip">
+    Hover me
+  </Tooltip>
+</Button>`}
+  preview={
+    <Button>
+      <Tooltip content="This is a tooltip">
+        Hover me
+      </Tooltip>
+    </Button>
+  }
+/>
+
+### Accordion
+
+```tsx
+<Accordion>
+  <Accordion.Item title="Section 1">
+    Content 1
+  </Accordion.Item>
+  <Accordion.Item title="Section 2">
+    Content 2
+  </Accordion.Item>
+</Accordion>
+```

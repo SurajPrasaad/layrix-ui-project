@@ -1,0 +1,34 @@
+/* Using regular CSS classes */
+body {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.logo {
+  transition: transform 0.5s ease-in-out;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a:nth-of-type(2) .logo {
+  animation: spin infinite 20s linear;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

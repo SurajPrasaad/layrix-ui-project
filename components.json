@@ -1,0 +1,352 @@
+{
+  "components": {
+    "button": {
+      "name": "button",
+      "description": "A button component",
+      "variants": ["default", "secondary", "destructive", "outline", "ghost", "link"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the button"
+        },
+        "size": {
+          "type": "string",
+          "default": "default",
+          "description": "The size of the button"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the button"
+        }
+      }
+    },
+    "input": {
+      "name": "input",
+      "description": "An input component",
+      "variants": ["default"],
+      "props": {
+        "type": {
+          "type": "string",
+          "default": "text",
+          "description": "The type of input"
+        },
+        "placeholder": {
+          "type": "string",
+          "default": "",
+          "description": "The placeholder text"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the input"
+        }
+      }
+    },
+    "card": {
+      "name": "card",
+      "description": "A card component",
+      "variants": ["default", "feature", "pricing"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the card"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the card"
+        }
+      }
+    },
+    "alert": {
+      "name": "alert",
+      "description": "An alert component",
+      "variants": ["default", "destructive", "warning"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the alert"
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "The title of the alert"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the alert"
+        }
+      }
+    },
+    "badge": {
+      "name": "badge",
+      "description": "A badge component",
+      "variants": ["default", "secondary", "destructive", "outline"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the badge"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the badge"
+        }
+      }
+    },
+    "label": {
+      "name": "label",
+      "description": "A label component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the label"
+        }
+      }
+    },
+    "textarea": {
+      "name": "textarea",
+      "description": "A textarea component",
+      "variants": ["default"],
+      "props": {
+        "placeholder": {
+          "type": "string",
+          "default": "",
+          "description": "The placeholder text"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the textarea"
+        }
+      }
+    },
+    "checkbox": {
+      "name": "checkbox",
+      "description": "A checkbox component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the checkbox"
+        }
+      }
+    },
+    "radio": {
+      "name": "radio",
+      "description": "A radio button component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the radio button"
+        }
+      }
+    },
+    "switch": {
+      "name": "switch",
+      "description": "A switch component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the switch"
+        }
+      }
+    },
+    "select": {
+      "name": "select",
+      "description": "A select component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the select"
+        }
+      }
+    },
+    "avatar": {
+      "name": "avatar",
+      "description": "An avatar component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the avatar"
+        }
+      }
+    },
+    "hero": {
+      "name": "hero",
+      "description": "A hero section component",
+      "variants": ["default"],
+      "props": {
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "The main title of the hero section"
+        },
+        "description": {
+          "type": "string",
+          "default": "",
+          "description": "The description text"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the hero section"
+        }
+      }
+    },
+    "navbar": {
+      "name": "navbar",
+      "description": "A navigation bar component",
+      "variants": ["default", "transparent"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the navbar"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the navbar"
+        }
+      }
+    },
+    "footer": {
+      "name": "footer",
+      "description": "A footer component",
+      "variants": ["default"],
+      "props": {
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the footer"
+        }
+      }
+    },
+    "section": {
+      "name": "section",
+      "description": "A section component",
+      "variants": ["default", "gradient", "dark"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the section"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the section"
+        }
+      }
+    },
+    "feature": {
+      "name": "feature",
+      "description": "A feature card component",
+      "variants": ["default", "horizontal"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the feature card"
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "The title of the feature"
+        },
+        "description": {
+          "type": "string",
+          "default": "",
+          "description": "The description of the feature"
+        },
+        "icon": {
+          "type": "string",
+          "default": "",
+          "description": "The icon class name"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the feature"
+        }
+      }
+    },
+    "pricing": {
+      "name": "pricing",
+      "description": "A pricing card component",
+      "variants": ["default", "featured"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the pricing card"
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "The title of the pricing plan"
+        },
+        "price": {
+          "type": "string",
+          "default": "",
+          "description": "The price value"
+        },
+        "features": {
+          "type": "array",
+          "default": [],
+          "description": "Array of feature strings"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the pricing card"
+        }
+      }
+    },
+    "cta": {
+      "name": "cta",
+      "description": "A call-to-action section component",
+      "variants": ["default", "gradient"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the CTA section"
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "The title of the CTA section"
+        },
+        "description": {
+          "type": "string",
+          "default": "",
+          "description": "The description text"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Additional classes to add to the CTA section"
+        }
+      }
+    }
+  }
+}
