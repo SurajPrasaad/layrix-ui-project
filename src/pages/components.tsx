@@ -40,7 +40,6 @@ interface Component {
 }
 
 import componentsData from '../components.json';
-const ComponentsData: Component[] = componentsData.components;
 
 const componentsList = {
   Button,

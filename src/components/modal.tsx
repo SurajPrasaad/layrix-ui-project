@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {

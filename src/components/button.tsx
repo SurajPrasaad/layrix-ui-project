@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
-import { motion, type HTMLMotionProps, type Transition } from 'framer-motion';
+import { motion, type Transition } from 'framer-motion';
 import type { MouseEvent } from 'react';
 
 interface CustomProps {

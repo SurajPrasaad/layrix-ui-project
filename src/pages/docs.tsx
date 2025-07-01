@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Card, Modal, Input, Select, Checkbox, Radio, Textarea, Badge, Avatar, Tooltip, Alert, ProgressBar, Accordion, AccordionItem, CodePreview } from '@/components';
+import { Button, Card, Modal, Input, Select, Checkbox, Radio, Textarea, Badge, Avatar, Tooltip, Alert, ProgressBar, Accordion, AccordionItem } from '@/components';
 
 export default function DocsPage() {
   const [selected, setSelected] = useState('');
