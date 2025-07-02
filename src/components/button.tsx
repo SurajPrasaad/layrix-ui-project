@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import { motion, type Transition } from 'framer-motion';
-import type { MouseEvent } from 'react';
+import { motion, type Transition, type PanInfo } from 'framer-motion';
+import type { MouseEvent, TouchEvent, PointerEvent } from 'react';
+import type { HTMLMotionProps } from 'framer-motion';
 
 interface CustomProps {
   variant?: 'default' | 'outline' | 'ghost' | 'primary';
@@ -17,8 +18,9 @@ interface CustomProps {
 
 type ButtonProps = CustomProps & {
   ref?: React.Ref<HTMLButtonElement>;
-  animated?: boolean;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+  onDrag?: (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void;
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag'> &
+  Omit<HTMLMotionProps<'button'>, keyof React.ButtonHTMLAttributes<HTMLButtonElement>>;
 
 const ButtonInner = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -32,10 +34,8 @@ const ButtonInner = React.forwardRef<HTMLButtonElement, ButtonProps>(
       animatedBorder = false,
       fancyHover = false,
       entrance = false,
-      onClick,
-      onDrag,
       ...props
-    }: ButtonProps,
+    },
     ref
   ) => {
     const baseStyles =
@@ -70,42 +70,9 @@ const ButtonInner = React.forwardRef<HTMLButtonElement, ButtonProps>(
         }
       : {};
 
-    return (
+    const ButtonContent = (
       <>
-        {animated ? (
-          <motion.button
-            ref={ref}
-            {...motionProps}
-            className={cn(
-              baseStyles,
-              variantStyles,
-              sizeStyles,
-              className
-            )}
-            disabled={loading}
-            onClick={(e: MouseEvent<HTMLButtonElement>) => {
-              if (onClick) {
-                onClick(e);
-              }
-            }}
-          >
-            {children}
-          </motion.button>
-        ) : (
-          <button
-            ref={ref}
-            className={cn(
-              baseStyles,
-              variantStyles,
-              sizeStyles,
-              className
-            )}
-            disabled={loading}
-            {...props}
-          >
-            {children}
-          </button>
-        )}
+        {children}
         {animatedBorder && (
           <span
             className="absolute inset-0 border border-primary-500 rounded-lg animate-border-glow pointer-events-none"
@@ -113,6 +80,27 @@ const ButtonInner = React.forwardRef<HTMLButtonElement, ButtonProps>(
           />
         )}
       </>
+    );
+
+    return animated ? (
+      <motion.button
+        ref={ref}
+        {...motionProps}
+        className={cn(baseStyles, variantStyles, sizeStyles, className)}
+        disabled={loading}
+        {...(props as Omit<HTMLMotionProps<'button'>, keyof React.ButtonHTMLAttributes<HTMLButtonElement>>)}
+      >
+        {ButtonContent}
+      </motion.button>
+    ) : (
+      <button
+        ref={ref}
+        className={cn(baseStyles, variantStyles, sizeStyles, className)}
+        disabled={loading}
+        {...(props as Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag'>)}
+      >
+        {ButtonContent}
+      </button>
     );
   }
 );

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from './button';
 import { Card } from './card';
+import { highlight, languages } from 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/themes/prism.css';
 
 interface CodePreviewProps {
   code: string;
@@ -13,13 +16,15 @@ export function CodePreview({ code, preview }: CodePreviewProps) {
 
   const toggleCode = () => {
     setShowCode(!showCode);
-    if (!showCode) setShowPreview(false);
+    if (!showCode && !showPreview) setShowPreview(true);
   };
 
   const togglePreview = () => {
     setShowPreview(!showPreview);
-    if (!showPreview) setShowCode(false);
+    if (!showPreview && !showCode) setShowCode(true);
   };
+
+  const highlightedCode = highlight(code, languages.jsx, 'jsx');
 
   return (
     <Card className="mb-8">
@@ -53,7 +58,7 @@ export function CodePreview({ code, preview }: CodePreviewProps) {
         {showCode && (
           <div className="relative bg-muted rounded-lg overflow-hidden">
             <pre className="p-4 text-sm font-mono whitespace-pre-wrap">
-              <code className="language-jsx" dangerouslySetInnerHTML={{ __html: code }}></code>
+              <code className="language-jsx" dangerouslySetInnerHTML={{ __html: highlightedCode }}></code>
             </pre>
           </div>
         )}

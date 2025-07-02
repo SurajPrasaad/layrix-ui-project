@@ -2,7 +2,13 @@
   "name": "@layrix-ui/react",
   "version": "1.0.0",
   "description": "A modern React UI component library built with Tailwind CSS",
-  "keywords": ["react", "ui", "components", "tailwind", "library"],
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "tailwind",
+    "library"
+  ],
   "homepage": "https://github.com/SurajPrasaad/layrix-ui-project",
   "bugs": {
     "url": "https://github.com/SurajPrasaad/layrix-ui-project/issues"
@@ -33,6 +39,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.20.1",
+    "prismjs": "^1.30.0",
     "react-router-dom": "^7.6.3",
     "rehype-highlight": "^7.0.2",
     "tailwind-merge": "^2.6.0",
@@ -54,6 +61,7 @@
     "@testing-library/react": "^14.2.0",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.11.0",
+    "@types/prismjs": "^1.26.5",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.2",

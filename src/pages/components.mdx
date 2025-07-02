@@ -28,29 +28,28 @@ A versatile button component with multiple variants and sizes.
 <Button size="lg">Large</Button>
 
 // Loading state
-<Button variant="primary" loading>Loading...</Button>
-
-// Disabled state
-<Button variant="primary" disabled>Disabled</Button>`}
-  preview={<ButtonPreview />}
-/>
-
-## Modal
-
-Dialog component for displaying content in an overlay.
-
-### Basic Usage
-
-<CodePreview
- code={`...`}
-  preview={<ModalPreview />}
-/>
-
-### Loading State
-
-<CodePreview
-  code={`<Button variant="primary" size="md" loading={true}>Loading...</Button>`}
-  preview={<ButtonPreview />}
+<Button loading>Loading</Button>
+<Button variant="primary" loading>Loading</Button>`}
+  preview={() => {
+    return (
+      <div className="space-y-4">
+        <div className="flex gap-2">
+          <Button variant="primary">Primary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+        </div>
+        <div className="flex gap-2">
+          <Button size="sm">Small</Button>
+          <Button size="md">Medium</Button>
+          <Button size="lg">Large</Button>
+        </div>
+        <div className="flex gap-2">
+          <Button loading>Loading</Button>
+          <Button variant="primary" loading>Loading</Button>
+        </div>
+      </div>
+    );
+  }}
 />
 
 ### Disabled State
