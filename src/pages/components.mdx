@@ -52,6 +52,75 @@ A versatile button component with multiple variants and sizes.
   }}
 />
 
+## Card
+
+A modern card component with animations and image support.
+
+
+### Examples
+
+<CodePreview
+  code={`// Basic Card with image
+  <Card
+    image="../assets/image.png"
+    title="Modern Card"
+    description="A beautiful card with animations"
+    hoverEffect="scale"
+    button={{
+      text: "Learn More",
+      onClick: () => console.log("Clicked"),
+      variant: "primary"
+    }}
+  >
+    <p className="mt-4">This card features a beautiful landscape image with scale hover effect.</p>
+  </Card>
+
+// Card with different hover effect
+<Card
+  image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800"
+  hoverEffect="lift"
+  title="Lift Effect"
+  description="Card lifts up on hover"
+  button={{
+    text: "View Details",
+    variant: "outline"
+  }}
+>
+  <p className="mt-4">This card demonstrates the lift hover effect with a cityscape image.</p>
+</Card>`}
+  preview={() => {
+    return (
+      <div className="space-y-8">
+        <Card
+          image="https://source.unsplash.com/random/800x600"
+          title="Modern Card"
+          description="A beautiful card with animations"
+          hoverEffect="scale"
+          button={{
+            text: "Learn More",
+            onClick: () => console.log("Clicked"),
+            variant: "primary"
+          }}
+        >
+          <p className="mt-4">This is a card with scale hover effect and an image header.</p>
+        </Card>
+
+        <Card
+          hoverEffect="lift"
+          title="Lift Effect"
+          description="Card lifts up on hover"
+          button={{
+            text: "View Details",
+            variant: "outline"
+          }}
+        >
+          <p className="mt-4">This card demonstrates the lift hover effect.</p>
+        </Card>
+      </div>
+    );
+  }}
+/>
+
 ### Disabled State
 
 <CodePreview
