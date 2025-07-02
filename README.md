@@ -9,11 +9,12 @@ A modern, customizable UI component library built with React, TypeScript, and Ta
 - 📦 CLI for easy component generation
 - 🎯 Configurable components with variants and props
 - 📦 Component documentation with JSON schema
+- 🎯 Supports React 18.2.0 and above
 
 ## Installation
 
 ```bash
-npm install layrix-ui
+npm install @layrix-ui/react
 ```
 
 ## Usage
@@ -31,7 +32,7 @@ npx layrix-ui components
 ### Using Components
 
 ```tsx
-import { Button } from "layrix-ui";
+import { Button, Card } from "@layrix-ui/react";
 
 // Default button
 <Button>Click me</Button>
@@ -39,12 +40,27 @@ import { Button } from "layrix-ui";
 // With variants
 <Button variant="secondary">Secondary</Button>
 <Button variant="destructive">Destructive</Button>
+
+// Card component
+<Card>
+  <h2>Card Title</h2>
+  <p>Card content goes here...</p>
+</Card>
+
+// Card with header
+<Card header={<h2>Card Title</h2>}>
+  <p>Card content goes here...</p>
+</Card>
 ```
 
 ## Available Components
 
 - Button
+- Card
 - Input
+- Accordion
+- Navigation
+- AnimatedBadgeButton
 
 ## Component Configuration
 
@@ -62,6 +78,22 @@ Components can be configured using `components.json`:
           "type": "string",
           "default": "default",
           "description": "The variant of the button"
+        }
+      }
+    },
+    "card": {
+      "name": "card",
+      "description": "A card component",
+      "variants": ["default", "elevated"],
+      "props": {
+        "variant": {
+          "type": "string",
+          "default": "default",
+          "description": "The variant of the card"
+        },
+        "header": {
+          "type": "React.ReactNode",
+          "description": "Header content for the card"
         }
       }
     }
