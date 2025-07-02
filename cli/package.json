@@ -1,6 +1,8 @@
 {
-  "name": "@layrix-ui/cli",
-  "version": "1.0.0",
+  "name": "layrix-ui-cli",
+  "version": "1.0.3",
+  "description": "CLI tool for Layrix UI component library",
+  "keywords": ["layrix", "ui", "cli", "react", "components"],
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -20,5 +22,7 @@
     "@types/node": "^20.19.2",
     "@types/path-browserify": "^1.0.3",
     "ts-node": "^10.9.2"
-  }
+  },
+  "author": "Suraj Prasad",
+  "license": "MIT"
 }

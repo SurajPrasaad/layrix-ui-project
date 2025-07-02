@@ -23,10 +23,10 @@ npm install @layrix-ui/react
 
 ```bash
 # Generate a new component
-npx layrix-ui generate button
+npx layrix-ui-cli generate button
 
 # List available components
-npx layrix-ui components
+npx layrix-ui-cli components
 ```
 
 ### Using Components
