@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  base = "/"
+
+[build.environment]
+  NODE_VERSION = "18.16.0"
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[headers]
+  for = "/*"
+    [headers.values]
+      Access-Control-Allow-Origin = "*"
+      Access-Control-Allow-Methods = "GET,HEAD,PUT,PATCH,POST,DELETE"
+      Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"

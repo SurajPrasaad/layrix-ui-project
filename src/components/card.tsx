@@ -14,6 +14,8 @@ interface CardProps {
     variant?: 'primary' | 'outline' | 'ghost';
   };
   hoverEffect?: 'scale' | 'lift' | 'fade';
+  variant?: 'default' | 'elevated';
+  header?: React.ReactNode;
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
