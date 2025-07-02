@@ -7,6 +7,7 @@ import GetStartedPage from './pages/get-started';
 import ComponentsPage from './pages/components';
 import DocsPage from './pages/docs';
 import './index.css';
+import { AnimatedBadgeButton } from './components/animatedBadgeButton';
 
 const features = [
   {
@@ -123,6 +124,7 @@ function App() {
                           <Button variant="primary" size="lg" className="mx-auto">
                             Get Started
                           </Button>
+                          <AnimatedBadgeButton text="npm i @layrix-ui/react" />
                           <Button variant="outline" size="lg" className="mx-auto">
                             View Components
                           </Button>
