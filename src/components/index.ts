@@ -13,3 +13,6 @@ export { Alert } from './alert';
 export { ProgressBar } from './progress-bar';
 export { Accordion, AccordionItem } from './accordion';
 export { CodePreview } from './CodePreview';
+export { DefaultNavbar, TransparentNavbar, GlassNavbar, DarkNavbar, PrimaryNavbar } from './navbar/NavbarVariants';
+export { DefaultFooter, DarkFooter, GradientFooter, MinimalFooter, GlassFooter } from './footer/FooterVariants';
+export { ModernLanding, GlassLanding, HeroLanding, MinimalLanding, CreativeLanding } from './landing/LandingVariants';

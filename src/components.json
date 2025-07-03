@@ -528,12 +528,256 @@
           "optional": true
         },
         "multiple": {
-          "type": "boolean",
-          "description": "Whether multiple sections can be open",
-          "optional": true
-        }
+          "type": "boolean"
       },
-      "example": "<Accordion variant='default'>\n  <Accordion.Item title='Section 1'>Content 1</Accordion.Item>\n  <Accordion.Item title='Section 2'>Content 2</Accordion.Item>\n</Accordion>"
-    }
-  ]
+      "alt": {
+        "type": "string",
+        "description": "Alternative text for image",
+        "optional": true
+      }
+    },
+    "example": "<Avatar variant='circular' size='md' src='avatar.jpg' alt='User avatar' />"
+  },
+  {
+    "name": "Tooltip",
+    "description": "Tooltip component for showing additional information",
+    "variants": [
+      { "variant": "top", "label": "Top", "description": "Tooltip appears above" },
+      { "variant": "bottom", "label": "Bottom", "description": "Tooltip appears below" },
+      { "variant": "left", "label": "Left", "description": "Tooltip appears to the left" },
+      { "variant": "right", "label": "Right", "description": "Tooltip appears to the right" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Tooltip position",
+        "options": ["top", "bottom", "left", "right"]
+      },
+      "content": {
+        "type": "string",
+        "description": "Tooltip content"
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      },
+      "delay": {
+        "type": "number",
+        "description": "Delay before showing tooltip (in ms)",
+        "optional": true
+      }
+    },
+    "example": "<Tooltip variant='top' content='This is a tooltip'>Hover me</Tooltip>"
+  },
+  {
+    "name": "Alert",
+    "description": "Alert component for showing notifications",
+    "variants": [
+      { "variant": "primary", "label": "Primary", "description": "Primary alert" },
+      { "variant": "success", "label": "Success", "description": "Success alert" },
+      { "variant": "warning", "label": "Warning", "description": "Warning alert" },
+      { "variant": "danger", "label": "Danger", "description": "Danger alert" },
+      { "variant": "info", "label": "Info", "description": "Info alert" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Alert variant",
+        "options": ["primary", "success", "warning", "danger", "info"]
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      },
+      "dismissible": {
+        "type": "boolean",
+        "description": "Whether the alert can be dismissed",
+        "optional": true
+      },
+      "onDismiss": {
+        "type": "function",
+        "description": "Callback when alert is dismissed",
+        "optional": true
+      }
+    },
+    "example": "<Alert variant='success'>Success message!</Alert>"
+  },
+  {
+    "name": "ProgressBar",
+    "description": "Progress bar component for showing progress",
+    "variants": [
+      { "variant": "default", "label": "Default", "description": "Standard progress bar" },
+      { "variant": "circular", "label": "Circular", "description": "Circular progress bar" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Progress bar variant",
+        "options": ["default", "circular"]
+      },
+      "value": {
+        "type": "number",
+        "description": "Progress value (0-100)"
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      },
+      "size": {
+        "type": "string",
+        "description": "Progress bar size",
+        "options": ["sm", "md", "lg"],
+        "optional": true
+      }
+    },
+    "example": "<ProgressBar variant='default' value={75} />"
+  },
+  {
+    "name": "Accordion",
+    "description": "Collapsible content section",
+    "variants": [
+      { "variant": "default", "label": "Default", "description": "Standard accordion" },
+      { "variant": "filled", "label": "Filled", "description": "Filled accordion" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Accordion variant",
+        "options": ["default", "filled"]
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether multiple sections can be open",
+        "optional": true
+      }
+    },
+    "example": "<Accordion variant='default'>\n  <Accordion.Item title='Section 1'>Content 1</Accordion.Item>\n  <Accordion.Item title='Section 2'>Content 2</Accordion.Item>\n</Accordion>"
+  },
+  {
+    "name": "Navbar",
+    "description": "Animated navbar components with different styles",
+    "variants": [
+      { "variant": "default", "label": "Default", "description": "Standard white navbar" },
+      { "variant": "transparent", "label": "Transparent", "description": "Transparent navbar" },
+      { "variant": "glass", "label": "Glass", "description": "Glass-morphism navbar" },
+      { "variant": "dark", "label": "Dark", "description": "Dark theme navbar" },
+      { "variant": "primary", "label": "Primary", "description": "Primary color navbar" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Navbar variant",
+        "options": ["default", "transparent", "glass", "dark", "primary"]
+      },
+      "title": {
+        "type": "string",
+        "description": "Navbar title",
+        "optional": true
+      },
+      "links": {
+        "type": "array",
+        "description": "Navigation links",
+        "optional": true
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      }
+    },
+    "example": "<DefaultNavbar links={[{ href: '#features', label: 'Features' }, { href: '#components', label: 'Components' }]} />"
+  },
+  {
+    "name": "Footer",
+    "description": "Footer components with different styles",
+    "variants": [
+      { "variant": "default", "label": "Default", "description": "Standard white footer" },
+      { "variant": "dark", "label": "Dark", "description": "Dark theme footer" },
+      { "variant": "gradient", "label": "Gradient", "description": "Gradient background footer" },
+      { "variant": "minimal", "label": "Minimal", "description": "Minimal style footer" },
+      { "variant": "glass", "label": "Glass", "description": "Glass-morphism footer" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Footer variant",
+        "options": ["default", "dark", "gradient", "minimal", "glass"]
+      },
+      "children": {
+        "type": "node",
+        "description": "Footer content",
+        "optional": true
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      }
+    },
+    "example": "<DefaultFooter><p>Custom footer content</p></DefaultFooter>"
+  },
+  {
+    "name": "Landing",
+    "description": "Modern landing page variants with different styles and layouts",
+    "variants": [
+      { "variant": "modern", "label": "Modern", "description": "Clean, modern landing page with gradient background and side-by-side layout" },
+      { "variant": "glass", "label": "Glass", "description": "Glass-morphism landing page with blur effect and modern design" },
+      { "variant": "advanced", "label": "Advanced", "description": "Advanced footer with grid layout and multiple sections" },
+      { "variant": "hero", "label": "Hero", "description": "Bold hero landing page with gradient hero section and image showcase" },
+      { "variant": "minimal", "label": "Minimal", "description": "Minimalist landing page with clean design and focus on content" },
+      { "variant": "creative", "label": "Creative", "description": "Creative landing page with vibrant gradient and unique design" }
+    ],
+    "props": {
+      "variant": {
+        "type": "string",
+        "description": "Footer variant",
+        "options": ["default", "dark", "gradient", "minimal", "glass", "advanced"]
+      },
+      "title": {
+        "type": "string",
+        "description": "Main heading text",
+        "optional": true
+      },
+      "description": {
+        "type": "string",
+        "description": "Subheading or description text",
+        "optional": true
+      },
+      "buttonText": {
+        "type": "string",
+        "description": "Text for the main call-to-action button",
+        "optional": true
+      },
+      "buttonLink": {
+        "type": "string",
+        "description": "Link for the call-to-action button",
+        "optional": true
+      },
+      "imageSrc": {
+        "type": "string",
+        "description": "Source URL for the landing page image",
+        "optional": true
+      },
+      "imageAlt": {
+        "type": "string",
+        "description": "Alt text for the landing page image",
+        "optional": true
+      },
+      "className": {
+        "type": "string",
+        "description": "Additional CSS classes",
+        "optional": true
+      }
+    },
+    "example": "<AdvancedFooter title=\"Layrix UI\" description=\"Beautiful, reusable UI components built for developers.\" />"
+  }
+]
 }
