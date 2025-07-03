@@ -14,9 +14,10 @@
   to = "/index.html"
   status = 200
 
-[headers]
+[[headers]]
   for = "/*"
-    [headers.values]
-      Access-Control-Allow-Origin = "*"
-      Access-Control-Allow-Methods = "GET,HEAD,PUT,PATCH,POST,DELETE"
-      Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
+  values = [
+    { Access-Control-Allow-Origin = "*" },
+    { Access-Control-Allow-Methods = "GET,HEAD,PUT,PATCH,POST,DELETE" },
+    { Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept" }
+  ]
