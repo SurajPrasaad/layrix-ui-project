@@ -1,4 +1,4 @@
-import { Card } from '@/components';
+import { Card } from '@/components/card';
 
 export const CardPreview = () => {
   return (

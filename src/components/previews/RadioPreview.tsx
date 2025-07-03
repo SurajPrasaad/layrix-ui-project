@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Radio } from '@/components';
+import { Radio } from '@/components/radio';
 
 export const RadioPreview = () => {
   const [value, setValue] = useState('option1');
