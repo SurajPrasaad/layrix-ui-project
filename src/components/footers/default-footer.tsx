@@ -1,10 +1,13 @@
 import React from 'react';
-import { FaGithub, FaTwitter, FaLinkedin,FaHeart } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaLinkedin, FaHeart } from 'react-icons/fa';
 
+interface DefaultFooterProps {
+  className?: string;
+}
 
-export const Footer: React.FC = () => {
+export const DefaultFooter: React.FC<DefaultFooterProps> = ({ className = '' }) => {
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
+    <footer className={`bg-gray-900 ${className}`}>
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
