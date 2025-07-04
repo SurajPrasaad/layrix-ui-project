@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Button } from '@/components/button';
-import { Modal } from '@/components/modal';
+import { Button, Modal } from '@/components';
 
 export const ModalPreview = () => {
   const [isOpen, setIsOpen] = useState(false);

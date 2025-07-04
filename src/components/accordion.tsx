@@ -1,83 +1,113 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import cn from '@/lib/utils.js';
 
-interface AccordionItemProps {
+interface AccordionItemProps extends React.PropsWithChildren {
   title: string;
-  children: React.ReactNode;
   open?: boolean;
   onToggle?: (open: boolean) => void;
-}
-
-export const AccordionItem: React.FC<AccordionItemProps> = ({
-  title,
-  children,
-  open = false,
-  onToggle,
-}) => {
-  const [isOpen, setIsOpen] = useState(open);
-
-  const handleToggle = () => {
-    const newState = !isOpen;
-    setIsOpen(newState);
-    onToggle?.(newState);
-  };
-
-  return (
-    <div className="border border-gray-700 rounded-lg overflow-hidden">
-      <button
-        onClick={handleToggle}
-        className="w-full flex items-center justify-between p-4 text-left bg-gray-800 hover:bg-gray-700 transition-colors"
-      >
-        <span className="text-white font-medium">{title}</span>
-        <ChevronDown
-          className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
-            isOpen ? 'transform rotate-180' : ''
-          }`}
-        />
-      </button>
-      {isOpen && (
-        <div className="p-4 bg-gray-900/50 border-t border-gray-700">
-          <div className="text-gray-300">{children}</div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-interface AccordionProps {
-  children: React.ReactNode;
   className?: string;
 }
 
+interface AccordionProps extends React.PropsWithChildren {
+  multiple?: boolean;
+  className?: string;
+}
+
+// Type guard to check if a child is an AccordionItem
 function isAccordionItem(
   element: React.ReactElement
 ): element is React.ReactElement<AccordionItemProps> {
   return element.type === AccordionItem;
 }
 
-export const Accordion: React.FC<AccordionProps> = ({
-  children,
-  className = '',
-}) => {
-  const [openItems, setOpenItems] = useState<string[]>([]);
+export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
+  ({ title, open = false, onToggle, children, className, ...props }, ref) => {
+    const handleClick = () => {
+      onToggle?.(!open);
+    };
 
-  const handleToggle = (title: string) => {
-    setOpenItems(prev => prev.includes(title)
-      ? prev.filter(t => t !== title)
-      : [...prev, title]);
-  };
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'border-b border-gray-700 last:border-0',
+          className
+        )}
+        {...props}
+      >
+        <button
+          onClick={handleClick}
+          className="w-full flex items-center justify-between p-4 text-left text-gray-300 hover:text-white"
+        >
+          <span>{title}</span>
+          <svg
+            className={cn(
+              'w-5 h-5 transition-transform',
+              open && 'rotate-180'
+            )}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        {open && (
+          <div className="p-4 border-t border-gray-700">
+            {children}
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
-  return (
-    <div className={`space-y-2 ${className}`}>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && isAccordionItem(child)) {
-          return React.cloneElement(child, {
-            open: openItems.includes(child.props.title),
-            onToggle: () => handleToggle(child.props.title),
-          });
-        }
-        return child;
-      })}
-    </div>
-  );
-};
+AccordionItem.displayName = 'AccordionItem';
+
+interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
+  multiple?: boolean;
+}
+
+export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
+  ({ children, multiple = false, className, ...props }, ref) => {
+    const [openItems, setOpenItems] = useState<string[]>([]);
+
+    const handleToggle = (title: string) => {
+      if (multiple) {
+        setOpenItems((prev) =>
+          prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
+        );
+      } else {
+        setOpenItems(openItems.includes(title) ? [] : [title]);
+      }
+    };
+
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'space-y-1',
+          className
+        )}
+        {...props}
+      >
+        {React.Children.map(children, (child) => {
+          if (child && React.isValidElement(child) && isAccordionItem(child)) {
+            return React.cloneElement(child, {
+              open: openItems.includes(child.props.title),
+              onToggle: () => handleToggle(child.props.title),
+            });
+          }
+          return child;
+        })}
+      </div>
+    );
+  }
+);
+
+Accordion.displayName = 'Accordion';
