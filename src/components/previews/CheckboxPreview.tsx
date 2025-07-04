@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Checkbox } from '@/components/checkbox';
+import { Checkbox } from '@/components';
 
 export const CheckboxPreview = () => {
   const [checked, setChecked] = useState(false);
