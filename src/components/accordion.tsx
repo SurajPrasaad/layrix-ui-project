@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import type { ReactNode } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface AccordionItemProps {
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
   open?: boolean;
   onToggle?: (open: boolean) => void;
 }
@@ -45,7 +46,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
 };
 
 interface AccordionProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 

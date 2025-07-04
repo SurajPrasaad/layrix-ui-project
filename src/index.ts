@@ -1,17 +1,20 @@
+// Core Components
+export { Accordion, AccordionItem } from './components/accordion';
+
+// Base Components
 export * from './components/button';
 export * from './components/card';
-export * from './components/modal';
 export * from './components/input';
 export * from './components/select';
-export * from './components/checkbox';
-export * from './components/radio';
 export * from './components/textarea';
 export * from './components/badge';
 export * from './components/avatar';
 export * from './components/tooltip';
 export * from './components/alert';
 export * from './components/progress-bar';
-export { Accordion, AccordionItem } from './components/accordion';
+export * from './components/modal';
+export * from './components/checkbox';
+export * from './components/radio';
 
 // Navigation Components
 export * from './components/navbars/default-navbar';
@@ -33,19 +36,3 @@ export * from './components/landings/glass-landing';
 export * from './components/landings/hero-landing';
 export * from './components/landings/minimal-landing';
 export * from './components/landings/creative-landing';
-
-// Base Components
-export * from './components/button';
-export * from './components/card';
-export * from './components/input';
-export * from './components/select';
-export * from './components/textarea';
-export * from './components/badge';
-export * from './components/avatar';
-export * from './components/tooltip';
-export * from './components/alert';
-export * from './components/progress-bar';
-export * from './components/modal';
-export * from './components/checkbox';
-
-export * from './components/radio';

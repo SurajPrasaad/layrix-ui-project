@@ -1,7 +1,4 @@
-import {Accordion, AccordionItem} from "./components/accordion";
-import { Checkbox, Modal, Radio, DefaultNavbar, TransparentNavbar, GlassNavbar, DarkNavbar, PrimaryNavbar, DefaultFooter, DarkFooter, GradientFooter, MinimalFooter, GlassFooter, ModernLanding, GlassLanding, HeroLanding, MinimalLanding, CreativeLanding,CodePreview } from "@/components"
-import { Button, Card, Input, Select, Textarea, Badge, Avatar, Tooltip, , ProgressBar } from '@/components';
-import {Alert} from "./components/alert.tsx"
+import { Button, Card, Input, Select, Textarea, Badge, Avatar, Tooltip, Alert, ProgressBar, CodePreview, Checkbox, Modal, Radio, DefaultNavbar, TransparentNavbar, GlassNavbar, DarkNavbar, PrimaryNavbar, DefaultFooter, DarkFooter, GradientFooter, MinimalFooter, GlassFooter, ModernLanding, GlassLanding, HeroLanding, MinimalLanding, CreativeLanding, Accordion, AccordionItem } from '@/components';
 import { useState } from 'react';
 import { ModalPreview } from '@/components/previews/ModalPreview';
 import { ButtonPreview } from '@/components/previews/ButtonPreview';
@@ -140,29 +137,21 @@ Display completion progress.
 
 ## Accordion
 
-Expandable content sections.
+Expandable content sections with smooth transitions.
 
 <CodePreview
-  code={`const accordionCode = (
+  code={`<Accordion>
+  <AccordionItem title="Item 1">
+    Content goes here
+  </AccordionItem>
+</Accordion>`}
+  preview={<div className="max-w-2xl">
     <Accordion>
-      <AccordionItem title="Item 1">Content</AccordionItem>
+      <AccordionItem title="Item 1">
+        Content goes here
+      </AccordionItem>
     </Accordion>
-  );
-
-  const accordionPreview = (
-    <div>
-      <Accordion>
-        <AccordionItem title="Item 1">Content</AccordionItem>
-      </Accordion>
-    </div>
-  );
-
-  {accordionCode}
-  preview={accordionPreview}
-/>`}
-  preview={<div><Accordion>
-    <AccordionItem title="Item 1">Content</AccordionItem>
-  </Accordion></div>}
+  </div>}
 />
 
 ## Navbar
